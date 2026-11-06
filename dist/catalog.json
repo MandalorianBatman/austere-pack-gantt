@@ -1,0 +1,90 @@
+{
+ "format": 1,
+ "pack": "austere-pack-gantt",
+ "version": "0.1.0",
+ "groups": [
+  {
+   "name": "Data",
+   "notes": []
+  }
+ ],
+ "components": [
+  {
+   "name": "Gantt",
+   "group": "Data",
+   "signature": "Gantt(tasks: GanttTask[], title?: string)",
+   "description": "Gantt chart: GanttTasks as bars on a shared date axis, in the order given. Each bar is a click target.",
+   "tier": "core",
+   "pack": "austere-pack-gantt",
+   "examples": [
+    "plan = Gantt([design, build, review, launch], \"Q4 rollout\")\ndesign = GanttTask(\"Design\", \"2026-11-02\", \"2026-11-13\", 100, \"Ada\")\nbuild = GanttTask(\"Build\", \"2026-11-09\", \"2026-12-04\", 45, \"Grace\")\nreview = GanttTask(\"Security review\", \"2026-12-01\", \"2026-12-11\", 0, \"Linus\")\nlaunch = GanttTask(\"Launch\", \"2026-12-14\")"
+   ],
+   "slots": [
+    "Card.children",
+    "TabItem.content",
+    "AccordionItem.content"
+   ]
+  },
+  {
+   "name": "GanttTask",
+   "group": "Data",
+   "signature": "GanttTask(name: string, start: string, end?: string, progress?: number, owner?: string)",
+   "description": "One bar in a Gantt. start and end are \"YYYY-MM-DD\" (end inclusive; omit or \"\" for a one-day milestone). progress is 0-100; owner is a short label.",
+   "tier": "core",
+   "pack": "austere-pack-gantt",
+   "examples": [],
+   "slots": null
+  }
+ ],
+ "api": 1,
+ "integrity": "sha384-4lD1PFKxxbxbCKSI8fKTspTkNp1PBz9eOTLgTrB1RGvq2n7SaKM65TKN+nS0HK4f",
+ "size": 8162,
+ "css": true,
+ "defs": {
+  "Gantt": {
+   "type": "object",
+   "properties": {
+    "tasks": {
+     "type": "array",
+     "items": {
+      "$ref": "#/$defs/GanttTask"
+     }
+    },
+    "title": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "tasks"
+   ],
+   "additionalProperties": false,
+   "description": "Gantt chart: GanttTasks as bars on a shared date axis, in the order given. Each bar is a click target."
+  },
+  "GanttTask": {
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "start": {
+     "type": "string"
+    },
+    "end": {
+     "type": "string"
+    },
+    "progress": {
+     "type": "number"
+    },
+    "owner": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "name",
+    "start"
+   ],
+   "additionalProperties": false,
+   "description": "One bar in a Gantt. start and end are \"YYYY-MM-DD\" (end inclusive; omit or \"\" for a one-day milestone). progress is 0-100; owner is a short label."
+  }
+ }
+}

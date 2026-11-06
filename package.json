@@ -1,0 +1,23 @@
+{
+  "name": "austere-pack-gantt",
+  "version": "0.1.0",
+  "description": "A Gantt chart component pack for austere-axi review pages: Gantt and GanttTask.",
+  "keywords": ["austere-axi-pack", "austere-axi", "gantt", "openui"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MandalorianBatman/austere-pack-gantt.git"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "austere-axi components build .",
+    "test": "node --test test/*.test.js",
+    "check:example": "node scripts/check-example.mjs",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "austere-axi": "^0.4.1",
+    "esbuild": "^0.28.0"
+  },
+  "austere": { "api": 1 }
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Q4 rollout plan</title>
+<script src="https://cdn.jsdelivr.net/npm/austere-axi@0/dist/austere.js"></script>
+</head>
+<body>
+<script type="text/openui">
+root = Stack([intro, plan, freeze])
+intro = TextContent("Rollout schedule for the billing migration. Click a bar to comment on that task.")
+plan = Gantt([design, build, review, canary, launch], "Billing migration")
+design = GanttTask("Design", "2026-11-02", "2026-11-13", 100, "Ada")
+build = GanttTask("Build", "2026-11-09", "2026-12-04", 45, "Grace")
+review = GanttTask("Security review", "2026-12-01", "2026-12-11", 0, "Linus")
+canary = GanttTask("Canary at 5%", "2026-12-08", "2026-12-14")
+launch = GanttTask("Launch", "2026-12-15")
+freeze = Callout("info", "Code freeze", "Nothing merges between Dec 11 and Jan 4 except fixes.")
+</script>
+</body>
+</html>

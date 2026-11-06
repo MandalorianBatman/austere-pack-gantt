@@ -1,0 +1,94 @@
+/* Theme variables (--austere-*) keep the chart readable in the dark theme.
+   Every class starts with the pack's prefix so it never collides with a page. */
+.pack-gantt {
+  --pack-gantt-label: clamp(88px, 28%, 200px);
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  font-size: 13px;
+}
+.pack-gantt-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+.pack-gantt-row {
+  display: grid;
+  grid-template-columns: var(--pack-gantt-label) minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.pack-gantt-label {
+  display: grid;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.pack-gantt-owner {
+  font-size: 11.5px;
+  color: var(--austere-muted);
+}
+.pack-gantt-track {
+  position: relative;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--austere-surface-2);
+}
+.pack-gantt-axis .pack-gantt-track {
+  height: 16px;
+  background: none;
+  overflow: visible;
+  color: var(--austere-muted);
+  font-size: 11px;
+}
+.pack-gantt-axis .pack-gantt-track span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.pack-gantt-bar {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  min-width: 6px;
+  border-radius: 4px;
+  background: var(--austere-accent-bg);
+  border: 1px solid var(--austere-accent);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.pack-gantt-fill {
+  display: block;
+  height: 100%;
+  background: var(--austere-accent);
+  opacity: 0.55;
+}
+.pack-gantt-bar.is-done {
+  border-color: var(--austere-queued);
+  background: var(--austere-queued);
+}
+.pack-gantt-bar.is-done .pack-gantt-fill {
+  background: var(--austere-queued);
+  opacity: 1;
+}
+.pack-gantt-bar.is-milestone {
+  min-width: 0;
+  width: 12px;
+  top: 5px;
+  bottom: 5px;
+  margin-left: -6px;
+  transform: rotate(45deg) scale(0.75);
+  border-radius: 2px;
+  background: var(--austere-changed);
+  border-color: var(--austere-changed);
+}
+.pack-gantt-error {
+  position: absolute;
+  inset: 0;
+  padding: 0 8px;
+  line-height: 22px;
+  color: var(--austere-del-strong);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
